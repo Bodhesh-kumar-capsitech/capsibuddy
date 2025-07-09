@@ -90,6 +90,7 @@ const HomeLayout: React.FC = () => {
           trigger={null}
           collapsible
           collapsed={collapsed}
+          breakpoint='lg'
           onCollapse={(value) => setCollapsed(value)}
           style={{
             background: colorBgContainer,
@@ -172,7 +173,6 @@ const HomeLayout: React.FC = () => {
             }}
           >
             {selectedKey === '1' && <StatsCards />}
-            {/* Add more components conditionally as needed */}
             {selectedKey === '2' && <Chat/>}
              {selectedKey === '3' && <Lead/>}
              {selectedKey === '4' && <Teammember/>}

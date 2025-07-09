@@ -30,7 +30,7 @@ const chatList: ChatItem[] = [
 
 const Chatbox: React.FC = () => {
   return (
-    <div className='h-[985px] w-[342px] max-h-full max-w-full !p-[12px]'>
+    <div className='!h-fit !w-[342px] !max-h-full !max-w-full !p-[12px]'>
       <Input.Search placeholder="Search" variant="filled" className='flex !h-[40px] !w-[800px] !max-w-fit !rounded-md' />
 
       <p className='text-[#DEDEDE]'><hr /></p>

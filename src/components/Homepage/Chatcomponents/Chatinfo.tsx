@@ -11,7 +11,7 @@ const { Title, Text } = Typography;
 
 const Chatinfo: React.FC = () => {
   return (
-    <Card className="!w-[426px] !h-[985px] !max-h-full !max-w-full mx-auto">
+    <Card className="!w-[426px] !h-fit !max-h-full !max-w-full mx-auto">
       <Title level={4} className="mb-2 text-2xl">
         Alice Wonderland
       </Title>
