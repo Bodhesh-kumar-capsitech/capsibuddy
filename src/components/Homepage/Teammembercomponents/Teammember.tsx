@@ -5,7 +5,7 @@ import Memberbox from "./Memberbox"
 const Teammember = () => {
   return (
    <>
-  <div className="flex flex-col h-[784px] w-[1604px] max-w-full overflow-hidden">
+  <div className="flex flex-col h-[850px] w-[1604px] max-w-full overflow-hidden  bg-[#FFFFFF] p-4 !rounded-[10px]">
       <Leadsearch />
     <Memberbox/>
 

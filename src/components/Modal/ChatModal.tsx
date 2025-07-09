@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Modal, Input } from "antd";
 import { SendOutlined } from "@ant-design/icons";
 
-interface ChatModalProps {
+export interface ChatModalProps {
     open: boolean;
     onClose: () => void;
 }

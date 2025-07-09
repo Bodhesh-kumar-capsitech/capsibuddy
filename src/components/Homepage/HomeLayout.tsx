@@ -46,7 +46,7 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem('Dashboard', '1', <ProductOutlined className="w-4 h-4" />),
+  getItem('Dashboard', '1', <ProductOutlined />),
   getItem('Chats', '2', <WechatOutlined />),
   getItem('Leads', '3', <UserOutlined />),
   getItem('Team Members', '4', <UserOutlined />),
@@ -60,7 +60,7 @@ const HomeLayout: React.FC = () => {
   const [selectedKey, setSelectedKey] = useState('1'); // track active menu
 
   const {
-    token: { colorBgContainer, borderRadiusLG },
+    token: { colorBgContainer },
   } = theme.useToken();
 
   const screens = useBreakpoint();
@@ -78,7 +78,8 @@ const HomeLayout: React.FC = () => {
       mode="inline"
       items={items}
       onClick={handleMenuClick}
-      className="font-normal text-sm !figtree-custom"
+      className="font-normal text-sm !figtree-custom custom-menu"
+
     />
   );
 
@@ -105,7 +106,7 @@ const HomeLayout: React.FC = () => {
           width={280}
           className="rounded-lg"
         >
-          <div className="flex flex-row flex-wrap sm:flex-nowrap items-center"><img src="Objects.png" alt="" className="h-[34px] w-[39px]" /><div className="text-transparent bg-clip-text bg-gradient-to-r from-[#A7BEFE] to-[#43319A] !comfortaa-custom text-center font-bold text-3xl p-2">CapsiBuddy</div></div>
+          <div className="flex flex-row flex-wrap sm:flex-nowrap items-center"><img src="Objects.png" alt="" className="h-[34px] w-[39px]" /><div className="text-transparent bg-clip-text bg-gradient-to-l from-[#A7BEFE] to-[#43319A] !comfortaa-custom text-center font-bold text-3xl p-2">CapsiBuddy</div></div>
           {menuContent}
         </Sider>
       )}
@@ -118,19 +119,10 @@ const HomeLayout: React.FC = () => {
       >
         {/* Fixed Header */}
         <Header
+          className="!bg-[#F4F4F4] !h-16 !px-4 fixed top-0 right-0 z-50 flex justify-between items-center border-b border-[#f0f0f0]"
           style={{
-            background: colorBgContainer,
-            height: 64,
-            padding: '0 16px',
-            position: 'fixed',
-            top: 0,
+
             left: isMobile ? 0 : collapsed ? 80 : 280,
-            right: 0,
-            zIndex: 999,
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            borderBottom: '1px solid #f0f0f0',
           }}
         >
           <div className="flex items-center gap-2">
@@ -154,30 +146,24 @@ const HomeLayout: React.FC = () => {
             />
           </div>
           <div className="flex items-center gap-2 sm:gap-4.5">
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1 hover:cursor-pointer">
               <img src="user.png" className="h-5 w-5" alt="user" />
               <p className="font-normal text-xs md:text-sm">Hi, Anthony</p>
             </div>
-            <BellFilled className="h-5 w-5" />
-            <SettingFilled className="h-5 w-5" />
+            <BellFilled className="h-5 w-5 hover:cursor-pointer" />
+            <SettingFilled className="h-5 w-5 hover:cursor-pointer" />
           </div>
         </Header>
 
         {/* Main Content */}
-        <Content style={{ marginTop: 64, padding: 24 }}>
-          <div
-            style={{
-              padding: 24,
-              background: colorBgContainer,
-              borderRadius: borderRadiusLG,
-            }}
-          >
+        <Content style={{ marginTop: 64, padding: 14 }}>
+          <div>
             {selectedKey === '1' && <StatsCards />}
-            {selectedKey === '2' && <Chat/>}
-             {selectedKey === '3' && <Lead/>}
-             {selectedKey === '4' && <Teammember/>}
-             {selectedKey === '5' && <Team/>}
-             {selectedKey === '6' && <Quick/>}
+            {selectedKey === '2' && <Chat />}
+            {selectedKey === '3' && <Lead />}
+            {selectedKey === '4' && <Teammember />}
+            {selectedKey === '5' && <Team />}
+            {selectedKey === '6' && <Quick />}
           </div>
         </Content>
       </Layout>

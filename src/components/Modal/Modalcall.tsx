@@ -19,7 +19,7 @@ export default function Modalcall() {
   const openCreateteamModal = () => setModalType("Createteam");
   const openNewquesModal = () => setModalType("Newques")
   const openChatModal = () => setModalType("chatui")
-
+  
   const handleClose = () => setModalType(null);
 
   const handleSubmit = (formData: LeadFormValues) => {

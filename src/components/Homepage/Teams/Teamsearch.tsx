@@ -1,6 +1,6 @@
 import { Cascader, Input ,Button } from "antd"
-import Createteam from "../../Models/Createteam"
-import type { LeadFormValues } from "../../Models/CreateLeadForm"
+import Createteam from "../../Modal/Createteam"
+import type { LeadFormValues } from "../../Modal/CreateLeadForm"
 
 import { useState } from "react"
 const Teamsearch = () => {

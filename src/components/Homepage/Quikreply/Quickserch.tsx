@@ -1,9 +1,9 @@
 import { Input ,Button } from "antd"
-import type { LeadFormValues } from "../../Models/CreateLeadForm"
+import type { LeadFormValues } from "../../Modal/CreateLeadForm"
 import Quickcomponent from "./Quickcomponent"
 
 import { useState } from "react"
-import Newquestion from "../../Models/Newquestion"
+import Newquestion from "../../Modal/Newquestion"
 const Quickserch = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
