@@ -95,18 +95,6 @@ const Chatinfo: React.FC = () => {
   );
 };
 
-interface DetailProps {
-  label: string;
-  value: React.ReactNode;
-}
 
-const Detail: React.FC<DetailProps> = ({ label, value }) => (
-  <div className="flex justify-between mb-2">
-    <Text type="secondary" className="w-[40%]">
-      {label}
-    </Text>
-    <Text className="w-[60%] text-right">{value}</Text>
-  </div>
-);
 
 export default Chatinfo;

@@ -23,6 +23,13 @@ const Chatcontent = () => {
       time: '1:21 PM',
       date: 'Today',
     },
+    {
+      text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s',
+      sender: 'other',
+      time: '1:20 PM',
+      date: 'Today',
+
+    },
   ]);
 
   const handleSendMessage = (text: string) => {
@@ -37,7 +44,7 @@ const Chatcontent = () => {
         text,
         sender: 'me',
         time: formattedTime,
-        date: 'Today', 
+        date: 'Today',
       };
 
       setMessages((prev) => [...prev, newMessage]);
@@ -62,14 +69,24 @@ const Chatcontent = () => {
           <div className="text-center text-gray-400 text-xs">Today</div>
 
           {messages.map((msg, index) => (
-            <div key={index} className={`flex flex-col ${msg.sender === 'me' ? 'items-end' : 'items-start'}`}>
+            <div
+              key={index}
+              className={`flex flex-col ${msg.sender === 'me' ? 'items-end' : 'items-start'}`}
+            >
               <span className="text-xs text-gray-400 mb-1">{msg.time}</span>
-              <div className={`rounded-xl px-4 py-2 max-w-xs text-sm shadow ${msg.sender === 'me' ? 'bg-[#8676E6] text-white' : 'bg-gray-100 text-black'}`}>
-                {msg.text}
-              </div>
+
+              {msg.sender === 'me' ? (
+                <div className="rounded-b-xl rounded-tl-xl px-4 py-2 max-w-xs text-sm shadow bg-[#8676E6] text-white">
+                  {msg.text}
+                </div>
+              ) : (
+                <div className="flex items-start gap-2">
+                  <div className="rounded-b-xl rounded-tr-xl px-4 py-2 max-w-xs text-sm shadow bg-white text-black">
+                    {msg.text}
+                  </div>
+                </div>
+              )}
             </div>
-            
-            
           ))}
         </div>
         <div className="border-1 border-[#DEDEDE]">

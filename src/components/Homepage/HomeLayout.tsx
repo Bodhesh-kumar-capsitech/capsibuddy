@@ -57,7 +57,7 @@ const items: MenuItem[] = [
 const HomeLayout: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
   const [drawerVisible, setDrawerVisible] = useState(false);
-  const [selectedKey, setSelectedKey] = useState('1'); // track active menu
+  const [selectedKey, setSelectedKey] = useState('1');
 
   const {
     token: { colorBgContainer },
