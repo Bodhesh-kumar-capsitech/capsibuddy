@@ -16,7 +16,6 @@ import {
   Menu,
   theme,
   Grid,
-  Button,
   Drawer,
 } from 'antd';
 import StatsCards from './Dashboardlayout/StatsCards';
@@ -28,6 +27,7 @@ import Quick from './Quikreply/Quick';
 
 const { Content, Sider, Header } = Layout;
 const { useBreakpoint } = Grid;
+
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -104,7 +104,7 @@ const HomeLayout: React.FC = () => {
             overflow: 'auto',
           }}
           width={280}
-          className="rounded-lg"
+          className="rounded-xl m-2"
         >
           <div className="flex flex-row flex-wrap sm:flex-nowrap items-center"><img src="Objects.png" alt="" className="h-[34px] w-[39px]" /><div className="text-transparent bg-clip-text bg-gradient-to-l from-[#A7BEFE] to-[#43319A] !comfortaa-custom text-center font-bold text-3xl p-2">CapsiBuddy</div></div>
           {menuContent}
@@ -118,24 +118,22 @@ const HomeLayout: React.FC = () => {
         }}
       >
         {/* Fixed Header */}
-        <Header
-          className="!bg-[#F4F4F4] !h-16 !px-4 fixed top-0 right-0 z-50 flex justify-between items-center border-b border-[#f0f0f0]"
-          style={{
-
-            left: isMobile ? 0 : collapsed ? 80 : 280,
-          }}
+        <header
+          className={`fixed top-0 right-0 z-50 flex h-14 items-center justify-between bg-[#F4F4F4] px-4 transition-all duration-300
+    ${isMobile ? 'left-0' : collapsed ? 'left-20' : 'left-72'}`}
         >
+          {/* Left: Breadcrumb & Menu */}
           <div className="flex items-center gap-2">
             {isMobile && (
-              <Button
-                icon={<MenuOutlined />}
-                type="text"
+              <button
                 onClick={() => setDrawerVisible(true)}
-                className="!text-xl !text-blue-600"
-              />
+                className="text-xl text-blue-600"
+              >
+                <MenuOutlined />
+              </button>
             )}
             <Breadcrumb
-              className="!figtree-custom !font-semibold !text-xs md:!text-sm"
+              className="font-semibold text-xs md:text-sm figtree-custom"
               items={[
                 { title: 'Home' },
                 {
@@ -145,18 +143,22 @@ const HomeLayout: React.FC = () => {
               ]}
             />
           </div>
-          <div className="flex items-center gap-2 sm:gap-4.5">
-            <div className="flex items-center gap-1 hover:cursor-pointer">
-              <img src="user.png" className="h-5 w-5" alt="user" />
-              <p className="font-normal text-xs md:text-sm">Hi, Anthony</p>
+
+          {/* Right: User Info + Icons */}
+          <div className="flex items-center gap-2 sm:gap-5">
+            <div className="flex items-center gap-1 cursor-pointer">
+              <img src="user.png" alt="user" className="h-5 w-5" />
+              <p className="text-xs md:text-sm font-normal">Hi, Anthony</p>
             </div>
-            <BellFilled className="h-5 w-5 hover:cursor-pointer" />
-            <SettingFilled className="h-5 w-5 hover:cursor-pointer" />
+            <BellFilled className="h-5 w-5 cursor-pointer" />
+            <SettingFilled className="h-5 w-5 cursor-pointer" />
           </div>
-        </Header>
+        </header>
+
+
 
         {/* Main Content */}
-        <Content style={{ marginTop: 64, padding: 14 }}>
+        <Content style={{ marginTop: 48, padding: 14 }}>
           <div>
             {selectedKey === '1' && <StatsCards />}
             {selectedKey === '2' && <Chat />}
@@ -179,7 +181,9 @@ const HomeLayout: React.FC = () => {
         onClose={() => setDrawerVisible(false)}
         open={drawerVisible}
         width={220}
-        bodyStyle={{ padding: 0 }}
+        height="100vh"
+        bodyStyle={{ padding: 0, height: '100%' }}
+
       >
         {menuContent}
       </Drawer>

@@ -26,6 +26,7 @@ const ChatModal: React.FC<ChatModalProps> = ({ open, onClose }) => {
             footer={null}
             closable={false}
             className="flex items-center justify-center"
+             bodyStyle={{ padding: 0 }}
         >
             <div className="flex flex-col w-full max-w-[400px] h-auto mx-4">
                 <div className="bg-[linear-gradient(to_left,_#A7BEFE,_#6E6EC5,_#5347AA,_#43319A)] text-white p-4 rounded-t-lg">
